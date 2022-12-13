@@ -25,7 +25,7 @@ public class JavaFxExample extends Application{
 															// handle 라는 내용이 수행 됨.
 														 // Action이라는 이벤트를 갖고.
 			@Override
-			public void handle(ActionEvent arg0) { //버튼누를 때마다 EvnetHandler가 수행.
+			public void handle(ActionEvent arg0) {
 				// Event가 발생하면 자동으로 호출되는 군요.
 				System.out.println("안녕하세요");
 			}

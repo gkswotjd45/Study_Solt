@@ -56,7 +56,7 @@ public class Exam01_DataCilent extends Application { //주석을 보고 어떤 �
 				// 서버에 접촉하려면 ip주소와 포트번호를 알아야함 함. => 네트워크 내에 나가서 내 컴퓨터를 찾아야 함 (lookBack)
 				// 자신을 찾을 때 사용하는 ip주소 127.0.0.1, localhost
 				try {
-					Socket s = new Socket("127.0.0.1",3001); // 성공하면 socket s 만듬
+					Socket s = new Socket("127.0.0.1",3000); // 성공하면 socket s 만듬
 					System.out.println("서버에 접속 성공");
 					
 					
@@ -69,8 +69,8 @@ public class Exam01_DataCilent extends Application { //주석을 보고 어떤 �
 												// 클라이언트는 어떤 경우라도 수신 o
 					System.out.println(msg);
 					
-					br.close();
-					s.close();
+					br.close(); //Buffered Reader (스트림) 종료.
+					s.close(); // Socket 종료
 					
 					System.out.println("서버와 연결 종료!");
 				} catch (UnknownHostException e) {
