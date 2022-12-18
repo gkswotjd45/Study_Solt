@@ -1,4 +1,4 @@
-package NetWork;
+package NetWork_part2_Echo;
 
 import java.io.BufferedReader;
 import java.io.IOException;

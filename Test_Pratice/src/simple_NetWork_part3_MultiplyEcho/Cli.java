@@ -1,4 +1,4 @@
-package MultiplyEcho;
+package simple_NetWork_part3_MultiplyEcho;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -60,7 +60,7 @@ public class Cli extends Application {
 		
 		connBtn.setOnAction(e -> { //handle 메서드는 block 메서드 임.
 			try {
-				s = new Socket("127.0.0.1", 5001);  // 예외상황이 발생을 미연에 방지
+				s = new Socket("127.0.0.1", 5011);  // 예외상황이 발생을 미연에 방지
 				printMsg("서버에 연결이 성공했습니다,");
 				
 				connBtn.setDisable(true);

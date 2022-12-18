@@ -1,4 +1,4 @@
-package MultiplyEcho;
+package simple_NetWork_part3_MultiplyEcho;
 
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
@@ -47,7 +47,7 @@ class EchoRunnable implements Runnable{
 	@Override
 	public void run() {
 		
-		while(true) { // 계속 textArea의 입력을 계속 기다리는 상태로 유지 why? Run() 메서드가 종료되면 해당 클라이언트는 쓰레드로 생성되어 
+		while(true) { // 계속 textArea의 입력을 계속 기다리는 상태로 유지 why? Run() 메서드가 종료되면 해당 클라이언트는 쓰레드로 종료되어 
 					  // 다시 서버와 연렬을 할 수 없기 때문에, 계속해서 run() 유지하는 과정을 수행.
 		String msg =null;
 		
@@ -121,7 +121,7 @@ public class Ser extends Application {  //자바 GUI 보여주기 위해 applica
 			
 			printMsg("서버가 시작되었어요!");
 			try {
-				server = new ServerSocket(5001);
+				server = new ServerSocket(5011);
 				printMsg("클라이언트 접속대기중!!!");
 				
 				(new Thread(() -> {
