@@ -1,4 +1,4 @@
-package exam03;
+package exam03_코드요약;
 
 import java.io.BufferedReader;
 import java.io.IOException;

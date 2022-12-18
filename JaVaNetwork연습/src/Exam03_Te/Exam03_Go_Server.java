@@ -55,7 +55,7 @@ class MyRunnable implements Runnable{
 			String msg = br.readLine(); // 2번 서버측에서 데이터를 수신.
 			
 			pr.println(msg); // 3번 클라이언측에 내용 전달.
-			pr.flush();
+			pr.flush(); // 실제 전달.
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -75,7 +75,7 @@ public class Exam03_Go_Server extends Application {
 	ServerSocket server;
 	
 	private void printMsg(String msg){
-		Platform.runLater(() ->{
+		Platform.runLater(() ->{ // GUI 쓰레드에 Textarea 내용 삽입.
 			textArea.appendText(msg + "\n");
 		});
 	}
@@ -101,13 +101,13 @@ public class Exam03_Go_Server extends Application {
 		startBtn.setOnAction(e -> { 
 			//이벤트 처리 코드가 나옴. (자바 람다)
 			//여기가 실행될 동안 window는 잠시 block 됨. // start 이벤트는 처리될 동안 실제윈도우는 잠시 실행 멈침 -> 이벤트 처리가 끝나야지 다시 사용할 수 있도록 됨.
-			//여기서 실앵이 안되면 사용자의 방응성이 문제 발생. // 응답시간을 고려해서 수행하야 함.
+			//여기서 실앵이 안되면 사용자의 반응성이 문제 발생. // 응답시간을 고려해서 수행하야 함.
 			
 			// 하필이면, 클라이언트에 접속을 무한정 기다리는 코드가 나와야함. => 서버가 기동하면 클라이언트 응답이 기다려야함 accept() 상태. => 해당 메서드는 안끝나서 무한 대기.
 			// accept()는 쓰레드를 가져야 함.ㅇ (block을 가지지 않기 위해서, 쓰레드에 적절하게 할당시켜야 함)
 			// 이문제를 해결하기 위해 쓰레드를 하나 생성하여 실행시켜야 함. -> 이벤트를 쓰레드에게 맡김.
 			
-			// 해당 쓰레드는 
+			// 해당 쓰레드는 서버에서 accept()를 발행하면, 동시에 다수의 클라이언트가 접속할 수 없어서, 쓰레드 안에 소켓을 생성해야 데이터 교환을 수행 할 수 있음.
 			(new Thread(()-> {
 				
 				try { // 대기 했다가 소멧만들고, 쓰레드 생성후 시작 반복.

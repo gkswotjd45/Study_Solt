@@ -110,10 +110,10 @@ public class Exam03_Go_Client extends Application{
 			String msg = chatTextField.getText();
 			
 			pr.println(id + "> "+ msg);  // 1번 과정 클라이언트 측에 데이터 전송.
-			pr.flush(); // 실제 전공.
+			pr.flush(); // 실제 전공. //1번 과정 
 			
 			try {
-				String receive = br.readLine();
+				String receive = br.readLine(); //4번 ㅇㅇ
 				printMsg(receive);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
