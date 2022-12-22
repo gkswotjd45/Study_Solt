@@ -36,6 +36,12 @@ public abstract class Plane {
 	public abstract void filght(int distance);
 	
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return planeName + " " + fulSize; 
+	}
+
 	public String show() {
 		return planeName + " " + fulSize; 
 	}
