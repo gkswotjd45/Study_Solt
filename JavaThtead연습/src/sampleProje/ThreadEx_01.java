@@ -18,7 +18,7 @@ class TreadEx_01_2 implements Runnable {
 }
 	
 // 이 밑에 있는 클래스는 당연히 Thread예요.. is-a 관계에 의해!
-class ThreadEx_01_1 extends java.lang.Thread { // 스레드를 상속해서 스레드 생성 후 수행.
+class ThreadEx_01_1 extends Thread { // 스레드를 상속해서 스레드 생성 후 수행.
 
 	public ThreadEx_01_1() {
 		// TODO Auto-generated constructor stub
@@ -82,6 +82,7 @@ public class ThreadEx_01{
 		// 아하, 이렇게 하는 것이 아니라, 다른 메서드를 이용해야함.
 		t1.start(); // Thread를 시작해. start를 이옿해서 Thread를 실행시킴. // 내부의 오버라이딩 된 Run을 찾아가서 실행
 		//non-blocking 기법. 2개의 실행흐름으로 수행되여 sysout 출력. 다른 하나는 Thread 스케줄링에서 언젠가 실행시켜 주며, 스레드가 모두 수행후 종료되면 
+
 		// 완전히 종료.
 		// 이 thread는 특이한 클래스 임으로 별도의 메서드를 이용해야함
 		//thread-0

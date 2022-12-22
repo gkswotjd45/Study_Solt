@@ -7,7 +7,7 @@ class Shread {
 											// 기다리는 형태여서 강제로 대기상태.
 		
 		try {
-			for(int i=0; i<10; i++) { // 자기 이름을 10번만
+			for(int i=0; i<10; i++) { // 자기 이름을 10번만 수행
 				Thread.sleep(1000);	
 				System.out.println(Thread.currentThread().getName());
 				notify(); // 내가 wait으로 들어갈때 notify통해 사전에 모니터를 꺼내여 수행.

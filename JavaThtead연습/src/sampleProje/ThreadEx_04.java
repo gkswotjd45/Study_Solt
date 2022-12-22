@@ -13,7 +13,7 @@ public class ThreadEx_04 implements Runnable {
 	public static void main(String[] args) { // 메인 스레드에 의해서 실행되는 코드.
 		
 		Thread t = new Thread(new ThreadEx_04()); //메인 메서드 안에서 main 스레드를 생성함 // t는 메인 스레드를 보조해주는 스레드.
-		t.setDaemon(true); // 자기를 만든 스레드를 보조하게 됨. // if 주석처리 하면 데몬 스레도르 처리하지 않겠다며 메인스레드는 종료되었더라도 run() 메서드는 무한 루프
+		t.setDaemon(true); // 자기를 만든 스레드를 보조하게 됨. // if) 주석처리 하면 데몬 스레도르 처리하지 않겠다며 메인스레드는 종료되었더라도 run() 메서드는 무한 루프
 							// 를 수행하게 됨.
 		t.start(); // 스레드를 시작.
 		

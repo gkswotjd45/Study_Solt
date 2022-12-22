@@ -49,8 +49,8 @@ public class ThreadEx_08 {
 		// 과정을 따라서 이해햐아함.
 		try {
 			Thread.sleep(2000); // main thread sleep
-			// 첫번째 thread를 일시 정지할꺼에요.
 			
+			// 첫번째 thread를 일시 정지할꺼에요.
 			r1.suspend(); // thread를 제어하는 것이 아니라, t1.suspended()가 아님, thread 직접제어하지 않고 스레드가 가지고 있는 Runnable 객체의 필드 값을 
 						 // feild 값을 조절해서 RUnnbale 객체가 가지고 있는 run() method 의 로직을 변화시키는 것예요.
 						// r1 멈춤. (r1이 중지)
