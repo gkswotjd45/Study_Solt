@@ -25,14 +25,14 @@ import javafx.util.Callback;
 import lecture.vo.BookVo;
 
 
-public class BookSearchJavaFX extends Application {
+public class BookSearchJavaFX_Delete extends Application {
 
 // 여러 개의 입력 상자. 한 줄짜리 입력상자.
 	// Table View 안에 데이터를 표현할때 Vo를 가져다가 한줄씩 표현하게 됨. 그때 어떤 VO를 사용하는지에 때한 class 대한 class이름을 generic으로 지정해야 함.
 	TableView<BookVo> tableView; // table view는 타입을 지정해야 사용함. table view 사용하는 VO 클래스를 지정해야 함.
 	// 한줄 row 마다 하나의 VO(객체)를 의미 => 따라서 BookVO 클래스를 이용하여 수행한다는 의미.
 	TextField textField;
-	Connection con;
+	Connection con; // 한번 처음에 연결하면 conn 객체 생성.
 	Button deleteBtn;
 	
 	String deleteISBN; //삭제할 책번호.
@@ -45,7 +45,7 @@ public class BookSearchJavaFX extends Application {
 	// 생성자(초기화) , 준비단계./ 앗 여기에서 JDBC 준비단ㅖ를 수행.
 	// Connectopn 객체는 지역변수가 되면 안되므로, 상위 필드에 지정. => 변수 선언.
 	
-	public BookSearchJavaFX() { // 생성자가 만들어지고 나서 인스턴스 생성 -? 인스턴스에 대한 start 메서드 수행/
+	public BookSearchJavaFX_Delete() { // 생성자가 만들어지고 나서 인스턴스 생성 -? 인스턴스에 대한 start 메서드 수행/
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
@@ -125,13 +125,23 @@ public class BookSearchJavaFX extends Application {
 		deleteBtn.setOnAction(e ->{// 버튼을 누르면 여기가 실행됨.
 
 			try {
+				con.setAutoCommit(false); 
 				String sql = "Delete From book where bisbn = ? ";
 				PreparedStatement pstmt;
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, deleteISBN); // 첫번 째 물음표에 삽입.
 			
+				
+				
 				//4. 실행
 				int count = pstmt.executeUpdate(); 
+				if(count == 1) {
+					con.commit();
+					// 다시 검색해서 결과 가져와서 화면에 찍어야 함.
+					
+				} else {
+					con.rollback();
+				}
 				System.out.println(count + "권 삭제되었습니다.");
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
