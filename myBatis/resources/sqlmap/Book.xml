@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" 
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+        
+<!-- mapper XML파일은 1개가 아니예요! -->
+        
+<mapper namespace="example.myBook">
+
+	<select id="selectBookByISBNHashMap" parameterType="String"
+	        resultType="HashMap">
+		<![CDATA[
+			SELECT bisbn, btitle, bauthor, bprice 
+			FROM book
+			WHERE bisbn = #{isbn}			
+		]]>
+	</select>
+	
+	<select id="selectAllHashMap" resultType="HashMap"> 
+	<!-- 여기에서 1줄 (1row)을 어디에 넣을 건지? -->
+			<![CDATA[
+			SELECT bisbn, btitle, bauthor, bprice 
+			FROM book		
+		]]>
+	</select>
+	
+	<!-- select에서 가져온 column과 매칭되는 vo와 field를 찾아서 값을 매핑 --> <!-- 우리 컬럼명와 필드면과 동일하면 됨. -->
+	<select id="selectBookbyISBNBookVO" parameterType="String" resultType="Book">
+			<![CDATA[
+				SELECT bisbn, btitle, bauthor, bprice 
+				FROM book	
+				where bisbn =#{isbn};	
+			]]>
+		
+	</select>
+	
+	<!-- 이름을 마음대로 지정할 수 있음 여기에 컬럼은 : select 해서 나온 결과 집합의 컬럼명, property : VO의 필드명 .  coumn을 result으로 매핑  -->
+	<resultMap id="testMap" type="Book">
+		<result column="b_isbn" property="bisbn"/>
+		<result column="b_title" property="btitle"/> 
+		<result column="b_author" property="bauthor"/> 
+		<result column="b_price" property="bprice"/> 
+	</resultMap>
+	
+	
+	<select id="selectBookbyISBNResultMap" parameterType="String" resultMap="testMap">
+			<![CDATA[
+				SELECT bisbn as b_isbn, btitle as b_title, bauthor as b_author, bprice as b_price
+				FROM book	
+				where bisbn =#{isbn};	
+			]]>
+		<!-- bookVO와 slect의 필드명이 다를 때, 그럼 어떻게 해야 하는기? -->
+	</select>
+	
+	<update id="update" parameterType="Book" >
+			<![CDATA[
+				Update book
+				set btitle=#{btitle}, bauthor=#{bauthor}, bprice=#{bprice}, bisbn=#{bisbn}
+				where bisbn=#{bisbn}
+			]]>
+		<!-- bookVO와 slect의 필드명이 다를 때, 그럼 어떻게 해야 하는기? -->
+		<!-- vo(객체) 안에 컬럼을 btitle, bprice 로 매칭로 변경, -->
+		
+		
+	</update>
+	
+</mapper>
