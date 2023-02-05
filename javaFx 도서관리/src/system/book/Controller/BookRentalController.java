@@ -15,9 +15,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import system.book.service.bookService;
 import system.book.vo.BookVO;
 
@@ -68,6 +70,20 @@ public class BookRentalController {
 	@FXML
 	private TableColumn<BookVO, String> rentalDatecategory;
 
+	@FXML
+	private TableColumn<?, ?> rentalDaycategory;
+
+	@FXML
+	private TableColumn<?, ?> rentalBisbncategory;
+
+	@FXML
+	private TableColumn<?, ?> rentalTitlecategory;
+
+	@FXML
+	private TableColumn<?, ?> mIdcategory;
+
+	public static String selectBisbn;
+
 	@FXML // This method is called by the FXMLLoader when initialization is complete
 	void initialize() {
 		assert txtBookName != null : "fx:id=\"txtBookName\" was not injected: check your FXML file 'bookRental.fxml'.";
@@ -83,9 +99,22 @@ public class BookRentalController {
 		bAuthorcategory.setCellValueFactory(new PropertyValueFactory<BookVO, String>("bauthor"));
 		bDatecategory.setCellValueFactory(new PropertyValueFactory<BookVO, String>("bdate"));
 		rentalDatecategory.setCellValueFactory(new PropertyValueFactory<BookVO, String>("rentalDate"));
-		rentalCheckcategory.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getRentalchecked()));
+		rentalCheckcategory
+				.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getRentalchecked()));
 		bPricecategory.setCellValueFactory(new PropertyValueFactory<BookVO, Integer>("bprice"));
-		
+
+		bookListTable.setRowFactory(tableView -> {
+			final TableRow<BookVO> row = new TableRow<>();
+
+			row.setOnMouseClicked(event -> {
+				if (event.getClickCount() == 1 && (!row.isEmpty())) {
+					selectBisbn = row.getItem().getBisbn();
+					System.out.println("click on " + row.getItem().getBisbn());
+				}
+			});
+
+			return row;
+		});
 	}
 
 	@FXML
@@ -95,8 +124,30 @@ public class BookRentalController {
 			ArrayList<BookVO> list = service.selectBooksByKeyword(txtBookName.getText().toString());
 			ObservableList<BookVO> olist = FXCollections.observableArrayList(list);
 			bookListTable.setItems(olist);
-			System.out.println(olist);
+//			System.out.println(olist);
+
 		});
+	}
+
+	@FXML
+	void actionbookRental(ActionEvent event) {
+
+//		bookService service = new bookService();
+//		int Rlist_Update = service.bookRental(txtBookName.getText().toString());
+//		ArrayList<BookVO> list = 
+//		ObservableList<BookVO> olist = FXCollections.observableArrayList(list);
+//		bookListTable.setItems(olist);
+//		System.out.println(olist);
+	}
+
+	@FXML
+	void actionRentalList(ActionEvent event) {
+
+	}
+
+	@FXML
+	void actionReturn(ActionEvent event) {
+
 	}
 
 }

@@ -37,4 +37,9 @@ public class bookService {
 		return list;
 	}
 
+	public int bookRental(String string) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

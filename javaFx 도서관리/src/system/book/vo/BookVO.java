@@ -13,7 +13,6 @@ public class BookVO {
 	private String rentalCheck; // 대여여부
 	
 	public BookVO() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	public BookVO(String bisbn) {
