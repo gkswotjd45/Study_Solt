@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="system.book.Controller.RegisterController">
+   <children>
+      <AnchorPane prefHeight="500.0" prefWidth="700.0">
+         <children>
+            <Button fx:id="btnRegist" layoutX="455.0" layoutY="383.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="77.0" text="등록" />
+            <TextField fx:id="inputID" layoutX="369.0" layoutY="139.0" />
+            <Label layoutX="169.0" layoutY="139.0" prefHeight="29.0" prefWidth="135.0" text="아이디 " />
+            <Label layoutX="41.0" layoutY="55.0" prefHeight="42.0" prefWidth="414.0" text="회원 등록 ">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Label layoutX="169.0" layoutY="182.0" prefHeight="29.0" prefWidth="135.0" text="비밀번호" />
+            <Label layoutX="169.0" layoutY="228.0" prefHeight="29.0" prefWidth="135.0" text="이메일 " />
+            <TextField fx:id="inputEmail" layoutX="369.0" layoutY="228.0" />
+            <Label layoutX="169.0" layoutY="274.0" prefHeight="29.0" prefWidth="135.0" text="전화번호" />
+            <TextField fx:id="inputPhone" layoutX="369.0" layoutY="274.0" />
+            <PasswordField fx:id="inputPassword" layoutX="369.0" layoutY="182.0" />
+            <Button fx:id="btnBack" layoutX="350.0" layoutY="383.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="77.0" text="이전" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

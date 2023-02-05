@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="example.myLogin">
+
+  <select id="selectMemberlogin" parameterType="Member" resultType="Member">
+  <![CDATA[
+  	SELECT *
+  	FROM member
+  	WHERE mID =#{mID} and mPassword =#{mPassword}
+  ]]>
+  </select>
+  
+  <insert id="Register" parameterType="Member">
+  <![CDATA[
+  	INSERT INTO member(mID,mPassword,mEmail,mPhone)
+  	VALUES (#{mID}, #{mPassword}, #{mEMail}, #{mPhone})
+  ]]>
+  </insert>
+  
+  
+</mapper>

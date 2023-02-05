@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="481.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.book.Controller.HomeController">
+   <children>
+      <Pane layoutX="27.0" layoutY="140.0" prefHeight="320.0" prefWidth="213.0">
+         <children>
+            <Label layoutX="13.0" layoutY="200.0" prefHeight="28.0" prefWidth="135.0" text="로그인 정보">
+               <font>
+                  <Font name="HYGothic-Extra" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="242.0" prefHeight="29.0" prefWidth="66.0" text="회원 ID" />
+            <Label fx:id="txtMemberID" layoutX="80.0" layoutY="245.0" prefHeight="19.0" prefWidth="95.0" />
+            <Label layoutX="12.0" layoutY="279.0" text="포인트" />
+            <Label fx:id="txtPoint" layoutX="78.0" layoutY="278.0" prefHeight="19.0" prefWidth="87.0" />
+         </children>
+      </Pane>
+      <Label layoutX="293.0" layoutY="203.0" prefHeight="88.0" prefWidth="317.0" text="도서 대여 정보시스템">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="314.0" layoutY="310.0" prefHeight="51.0" prefWidth="254.0" text="이용해 주셔서 감사합니다.">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Pane layoutX="10.0" layoutY="14.0" prefHeight="78.0" prefWidth="681.0">
+         <children>
+            <Button fx:id="btnBookRental" layoutX="516.0" layoutY="20.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="151.0" text="도서대여 및 반납" />
+            <Button fx:id="btnMymeber" layoutX="350.0" layoutY="20.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="151.0" text="회원정보 수정" />
+            <Button fx:id="btneAllmember" layoutX="181.0" layoutY="20.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="151.0" text="전체이용자 목록" />
+            <Button fx:id="btnManage" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="151.0" text="도서관리" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

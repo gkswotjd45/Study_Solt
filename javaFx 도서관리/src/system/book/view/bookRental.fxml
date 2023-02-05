@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.book.Controller.BookRentalController">
+   <children>
+      <TableView layoutX="253.0" layoutY="283.0" prefHeight="203.0" prefWidth="440.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="대여한 ID" />
+            <TableColumn prefWidth="75.0" text="청구기호" />
+            <TableColumn prefWidth="75.0" text="책제목" />
+            <TableColumn prefWidth="75.0" text="대여기간" />
+         </columns>
+      </TableView>
+      <Pane layoutX="2.0" layoutY="38.0" prefHeight="457.0" prefWidth="246.0">
+         <children>
+            <Label layoutX="3.0" layoutY="38.0" text="전체 도서">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="17.0" layoutY="96.0" prefHeight="19.0" prefWidth="91.0" text="도서제목" />
+            <TextField fx:id="txtBookName" layoutX="98.0" layoutY="91.0" prefHeight="29.0" prefWidth="135.0" />
+            <Button fx:id="btnSearch" layoutX="28.0" layoutY="144.0" mnemonicParsing="false" onAction="#keywordBook" prefHeight="29.0" prefWidth="83.0" text="검색" />
+            <Button fx:id="btnRental" layoutX="142.0" layoutY="144.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="77.0" text="대여" />
+            <Label layoutX="4.0" layoutY="295.0" text="반납 도서">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnRentalList" layoutX="4.0" layoutY="353.0" mnemonicParsing="false" text="현재 대여한 도서목록" />
+            <Button fx:id="btnReturn" layoutX="177.0" layoutY="353.0" mnemonicParsing="false" text="반납 " />
+            <Label layoutX="6.0" layoutY="-34.0" text="도서 대여 및 반납">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TableView fx:id="bookListTable" layoutX="255.0" layoutY="43.0" prefHeight="213.0" prefWidth="437.0">
+         <columns>
+            <TableColumn fx:id="bIsbncategory" prefWidth="75.0" text="청구기호" />
+            <TableColumn fx:id="bTitlecategory" prefWidth="75.0" text="도서명" />
+            <TableColumn fx:id="bAuthorcategory" prefWidth="61.0" text="작가" />
+            <TableColumn fx:id="bPricecategory" prefWidth="61.0" text="가격" />
+            <TableColumn fx:id="bDatecategory" prefWidth="89.0" text="출판일" />
+            <TableColumn fx:id="rentalCheckcategory" prefWidth="88.0" text="대여여부" />
+            <TableColumn fx:id="rentalDatecategory" prefWidth="62.0" text="대여기간" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

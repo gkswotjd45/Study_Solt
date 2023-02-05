@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="264.0" prefWidth="553.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.book.Controller.MainLoginController">
+   <children>
+      <Button fx:id="btnLogin" layoutX="289.0" layoutY="210.0" mnemonicParsing="false" text="로그인" />
+      <Button fx:id="btnRegister" layoutX="381.0" layoutY="210.0" mnemonicParsing="false" text="회원가입" />
+      <TextField fx:id="inID" layoutX="289.0" layoutY="103.0" promptText="ID 입력" />
+      <Label layoutX="129.0" layoutY="103.0" prefHeight="29.0" prefWidth="118.0" text="아이디">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="129.0" layoutY="140.0" prefHeight="29.0" prefWidth="118.0" text="비밀번호">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="inPassword" layoutX="289.0" layoutY="140.0" promptText="패스워드 입력" />
+      <Pane layoutX="203.0" layoutY="30.0" prefHeight="57.0" prefWidth="172.0">
+         <children>
+            <Label layoutX="-2.0" layoutY="-4.0" prefHeight="65.0" prefWidth="179.0" text="도서관리 로그인" textAlignment="CENTER">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
